@@ -93,7 +93,13 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
 
     // Special Buttons
     public void btnClick_percent(View view) {
-
+        String temp = inputBox.getText().toString();
+        if(temp.length() == 0){
+            inputBox.setText("0");
+        }else{
+            Double num = Double.parseDouble(temp)/100;
+            inputBox.setText(num + "");
+        }
     }
     public void btnClick_changeSign(View view) {
         String temp = inputBox.getText().toString();
