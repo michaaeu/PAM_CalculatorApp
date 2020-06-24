@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,6 +22,10 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
 
         inputBox = (TextView) findViewById(R.id.inputTextView);
         operBox = (TextView) findViewById(R.id.signTextView);
+
+        if(savedInstanceState != null){
+            restoreFromSavedInstanceState(savedInstanceState);
+        }
     }
 
     // Number buttons //
@@ -180,5 +185,30 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         }else{
             inputBox.setText("Error");
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("inputBox"   , inputBox.getText().toString());
+        outState.putString("operBox"    , operBox.getText().toString());
+        outState.putString("oper"       , oper);
+        outState.putString("value1"     , value1);
+        outState.putString("value2"     , value2);
+        outState.putDouble("num1"       , num1);
+        outState.putDouble("num2"       , num2);
+        outState.putDouble("result"     , result);
+    }
+
+    protected void restoreFromSavedInstanceState(Bundle savedInSt) {
+        inputBox.setText(savedInSt.getString("inputBox"));
+        operBox.setText(savedInSt.getString("operBox"));
+        oper    = savedInSt.getString("oper");
+        value1  = savedInSt.getString("value1");
+        value1  = savedInSt.getString("value2");
+        num1    = savedInSt.getDouble("num1");
+        num2    = savedInSt.getDouble("num2");
+        result  = savedInSt.getDouble("result");
     }
 }
