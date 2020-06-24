@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,6 +11,7 @@
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
+        android:onClick="btnClick_simple"
         android:text="Simple"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -22,7 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35" />
+
     <Button
+        android:onClick="btnClick_advanced"
         android:id="@+id/advancedButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
@@ -37,7 +39,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
+
     <Button
+        android:onClick="btnClick_about"
         android:id="@+id/aboutButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
@@ -52,11 +56,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55" />
+
     <Button
         android:id="@+id/exitButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
+        android:onClick="btnClick_exit"
         android:text="Exit"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
