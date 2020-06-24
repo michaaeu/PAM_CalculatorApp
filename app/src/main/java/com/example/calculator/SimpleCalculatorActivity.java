@@ -9,9 +9,10 @@ import android.widget.TextView;
 
 public class SimpleCalculatorActivity extends AppCompatActivity {
 
-    TextView inputBox, signBox;
-    String sign;
-    double value1, value2, result;
+    TextView inputBox, operBox;
+    String oper;
+    String value1, value2;
+    Double num1, num2, result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +20,15 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simple_calculator);
 
         inputBox = (TextView) findViewById(R.id.inputTextView);
-        signBox = (TextView) findViewById(R.id.signTextView);
+        operBox = (TextView) findViewById(R.id.signTextView);
     }
 
+    // Number buttons //
     public void btnClick_num0(View view) {
         inputBox.append("0");
     }
     public void btnClick_num1(View view) {
-        inputBox.append( "1");
+        inputBox.append("1");
     }
     public void btnClick_num2(View view) {
         inputBox.append("2");
@@ -34,9 +36,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     public void btnClick_num3(View view) {
         inputBox.append("3");
     }
-    public void btnClick_num4(View view) {
-        inputBox.append("4");
-    }
+    public void btnClick_num4(View view) { inputBox.append("4"); }
     public void btnClick_num5(View view) {
         inputBox.append("5");
     }
@@ -53,49 +53,126 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         inputBox.append("9");
     }
 
-
+    // Operation Buttons //
     public void btnClick_divide(View view) {
-        sign = "/";
-        signBox.setText("/");
-        value1 = Double.parseDouble((String) inputBox.getText());
+        if(oper != null){
+            operate();
+        }
+        oper = "/";
+        operBox.setText("/");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
     public void btnClick_multiply(View view) {
-        sign = "X";
-        signBox.setText("X");
-        value1 = Double.parseDouble((String) inputBox.getText());
+        if(oper != null){
+            operate();
+        }
+        oper = "x";
+        operBox.setText("X");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
     public void btnClick_minus(View view) {
-        sign = "-";
-        signBox.setText("-");
-        value1 = Double.parseDouble((String) inputBox.getText());
+        if(oper != null){
+            operate();
+        }
+        oper = "-";
+        operBox.setText("-");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
     public void btnClick_plus(View view) {
-        sign = "+";
-        signBox.setText("+");
-        value1 = Double.parseDouble((String) inputBox.getText());
+        if(oper != null){
+            operate();
+        }
+        oper = "+";
+        operBox.setText("+");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
 
+    // Special Buttons
+    public void btnClick_percent(View view) {
 
+    }
+    public void btnClick_changeSign(View view) {
+        String temp = inputBox.getText().toString();
+        if(temp.length() > 0){
+            if(temp.charAt(0) == '-'){
+                temp = temp.substring(1);
+            }else {
+                temp = "-" + temp;
+            }
+            inputBox.setText(temp);
+        }
+    }
+
+    //Other Buttons
     public void btnClick_clear(View view) {
         inputBox.setText("");
     }
-    public void btnClick_changeSign(View view) {
-    }
-    public void btnClick_percent(View view) {
-    }
     public void btnClick_dot(View view) {
+        if (inputBox.getText().toString().lastIndexOf(".") == -1) {
+            if (inputBox.getText().equals("0") || inputBox.getText().length() == 0) {
+                inputBox.setText("0.");
+            } else {
+                inputBox.setText(inputBox.getText() + ".");
+            }
+        }
+
     }
     public void btnClick_result(View view) {
+        operate();
+    }
 
-        switch(sign){
-            case "+":
-                {
-                    
-                }
-            case "-":
-                {
+    private void operate() {
+        if(inputBox.getText().equals("")){
+            operBox.setText("Error");
+        }else if(oper != null){
+            value2 = inputBox.getText().toString();
+            num1 = Double.parseDouble(value1);
+            num2 = Double.parseDouble(value2);
+            inputBox.setText(null);
 
+            switch(oper){
+                default:{
+                    break;
                 }
+                case "+":
+                {
+                    result = num1 + num2;
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
+                case "-":
+                {
+                    result = num1 - num2;
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
+                case "x":
+                {
+                    result = num1 * num2;
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
+                case "/":
+                {
+                    result = num1 / num2;
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
+            }
+        }else{
+            inputBox.setText("Error");
         }
     }
 }
