@@ -117,6 +117,32 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         }
     }
 
+    // Advanced Mode Operations
+
+    public void btnClick_sin(View view) {
+    }
+
+    public void btnClick_cos(View view) {
+    }
+
+    public void btnClick_tan(View view) {
+    }
+
+    public void btnClick_sqrt(View view) {
+    }
+
+    public void btnClick_ln(View view) {
+    }
+
+    public void btnClick_log(View view) {
+    }
+
+    public void btnClick_power2(View view) {
+    }
+
+    public void btnClick_powerY(View view) {
+    }
+
     //Other Buttons
     public void btnClick_clear(View view) {
         inputBox.setText("");
