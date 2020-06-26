@@ -10,9 +10,8 @@ import android.widget.TextView;
 public class SimpleCalculatorActivity extends AppCompatActivity {
 
     TextView inputBox, operBox;
-    String oper;
-    String value1, value2;
-    Double num1, num2, result;
+    String oper, value1, value2;
+    Double  num1, num2, result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +21,20 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         inputBox = (TextView) findViewById(R.id.inputTextView);
         operBox = (TextView) findViewById(R.id.signTextView);
 
+        initValues();
+
         if(savedInstanceState != null){
             restoreFromSavedInstanceState(savedInstanceState);
         }
+    }
+
+    private void initValues() {
+        oper    = "";
+        value1  = "";
+        value2  = "";
+        num1    = 0.0;
+        num2    = 0.0;
+        result  = 0.0;
     }
 
     // Number buttons //
