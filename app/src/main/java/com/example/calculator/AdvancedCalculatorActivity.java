@@ -120,24 +120,90 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
     // Advanced Mode Operations
 
     public void btnClick_sin(View view) {
+        double value;
+        String temp = inputBox.getText().toString();
+
+        if(temp.length() == 0){
+            value = Math.sin(0);
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.sin(value);
+        }
+
+        inputBox.setText(value + "");
     }
 
     public void btnClick_cos(View view) {
+        double value;
+        String temp = inputBox.getText().toString();
+
+        if(temp.length() == 0){
+            value = Math.cos(0);
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.cos(value);
+        }
+
+        inputBox.setText(value + "");
     }
 
     public void btnClick_tan(View view) {
+        double value;
+        String temp = inputBox.getText().toString();
+
+        if(temp.length() == 0){
+            value = Math.tan(0);
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.tan(value);
+        }
+
+        inputBox.setText(value + "");
     }
 
     public void btnClick_sqrt(View view) {
+        double value;
+        String temp = inputBox.getText().toString();
+
+        if(temp.length() == 0){
+            value = 0;
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.sqrt(value);
+        }
+
+        inputBox.setText(value + "");
     }
 
     public void btnClick_ln(View view) {
-    }
+        double value;
+        String temp = inputBox.getText().toString();
 
-    public void btnClick_log(View view) {
+        if(temp.length() == 0){
+            value = Math.log(0);
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.log(value);
+        }
+
+        inputBox.setText(value + "");
     }
 
     public void btnClick_power2(View view) {
+        double value;
+        String temp = inputBox.getText().toString();
+
+        if(temp.length() == 0){
+            value = 0;
+        }else{
+            value = Double.parseDouble(temp);
+            value = Math.pow(value,2);
+        }
+
+        inputBox.setText(value + "");
+    }
+
+    public void btnClick_log(View view) {
     }
 
     public void btnClick_powerY(View view) {
