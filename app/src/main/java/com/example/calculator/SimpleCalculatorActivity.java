@@ -29,7 +29,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     }
 
     private void initValues() {
-        oper    = "";
+        oper    = null;
         value1  = "";
         value2  = "";
         num1    = 0.0;
