@@ -72,37 +72,32 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         if(oper != null){
             operate();
         }
-        oper = "/";
-        operBox.setText("/");
-        value1 = inputBox.getText().toString();
-        inputBox.setText(null);
+        setOperation("/");
     }
     public void btnClick_multiply(View view) {
         if(oper != null){
             operate();
         }
-        oper = "x";
-        operBox.setText("X");
-        value1 = inputBox.getText().toString();
-        inputBox.setText(null);
+        setOperation("x");
     }
     public void btnClick_minus(View view) {
         if(oper != null){
             operate();
         }
-        oper = "-";
-        operBox.setText("-");
-        value1 = inputBox.getText().toString();
-        inputBox.setText(null);
+        setOperation("-");
     }
     public void btnClick_plus(View view) {
         if(oper != null){
             operate();
         }
-        oper = "+";
-        operBox.setText("+");
-        value1 = inputBox.getText().toString();
-        inputBox.setText(null);
+        setOperation("+");
+    }
+
+    private void setOperation(String oper){
+        this.oper = oper;
+        this.operBox.setText(oper);
+        this.value1 = inputBox.getText().toString();
+        this.inputBox.setText(null);
     }
 
     // Special Buttons
