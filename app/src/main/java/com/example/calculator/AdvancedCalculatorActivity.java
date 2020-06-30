@@ -267,54 +267,35 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
                 case "+":
                 {
                     result = num1 + num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "-":
                 {
                     result = num1 - num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "x":
                 {
                     result = num1 * num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "/":
                 {
                     result = num1 / num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "log":
                 {
                     result = customLog(num1,num2);
-
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "power":
                 {
                     result = Math.pow(num1,num2);
-
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
             }
+            setResult(result);
         }else{
             inputBox.setText("Error");
         }
@@ -322,6 +303,12 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
 
     private static double customLog(double base, double logNumber) {
         return Math.log(logNumber) / Math.log(base);
+    }
+
+    private void setResult(double result){
+        inputBox.setText(result + "");
+        oper = null;
+        operBox.setText(null);
     }
 
     @Override

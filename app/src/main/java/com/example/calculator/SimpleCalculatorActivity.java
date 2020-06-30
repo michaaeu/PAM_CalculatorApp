@@ -161,39 +161,33 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
                 case "+":
                 {
                     result = num1 + num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "-":
                 {
                     result = num1 - num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "x":
                 {
                     result = num1 * num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
                 case "/":
                 {
                     result = num1 / num2;
-                    inputBox.setText(result + "");
-                    oper = null;
-                    operBox.setText(null);
                     break;
                 }
             }
+            setResult(result);
         }else{
             inputBox.setText("Error");
         }
+    }
+    private void setResult(double result){
+        inputBox.setText(result + "");
+        oper = null;
+        operBox.setText(null);
     }
 
     @Override
