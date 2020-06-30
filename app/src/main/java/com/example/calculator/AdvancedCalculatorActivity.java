@@ -214,9 +214,23 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
     }
 
     public void btnClick_log(View view) {
+        if(oper != null){
+            operate();
+        }
+        oper = "log";
+        operBox.setText("log");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
 
     public void btnClick_powerY(View view) {
+        if(oper != null){
+            operate();
+        }
+        oper = "power";
+        operBox.setText("pow");
+        value1 = inputBox.getText().toString();
+        inputBox.setText(null);
     }
 
     //Other Buttons
@@ -282,10 +296,32 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
                     operBox.setText(null);
                     break;
                 }
+                case "log":
+                {
+                    result = customLog(num1,num2);
+
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
+                case "power":
+                {
+                    result = Math.pow(num1,num2);
+
+                    inputBox.setText(result + "");
+                    oper = null;
+                    operBox.setText(null);
+                    break;
+                }
             }
         }else{
             inputBox.setText("Error");
         }
+    }
+
+    private static double customLog(double base, double logNumber) {
+        return Math.log(logNumber) / Math.log(base);
     }
 
     @Override
